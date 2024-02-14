@@ -1,0 +1,46 @@
+2024-02-13 12:32:38,427: root: INFO: MLTrader : Executing the initialize lifecycle method
+2024-02-13 12:32:39,303: root: INFO: Current backtesting datetime 2020-01-02 08:30:00-05:00
+2024-02-13 12:32:39,303: root: INFO: MLTrader : Executing the before_market_opens lifecycle method
+2024-02-13 12:32:39,304: root: INFO: Current backtesting datetime 2020-01-02 09:30:00-05:00
+2024-02-13 12:32:39,304: root: INFO: MLTrader : Executing the before_starting_trading lifecycle method
+2024-02-13 12:32:39,305: root: INFO: [34mMLTrader : Executing the on_trading_iteration lifecycle method at 2024-02-13 12:32:39[0m
+2024-02-13 12:32:39,305: root: WARNING: quote is not implemented for YahooData, but USD was passed as the quote
+2024-02-13 12:32:39,309: root: WARNING: quote is not implemented for YahooData, but USD was passed as the quote
+2024-02-13 12:32:39,309: root: ERROR: name 'Timedelta' is not defined
+2024-02-13 12:32:39,310: root: ERROR: Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/lumibot/strategies/strategy_executor.py", line 822, in run
+    self._run_trading_session()
+  File "/opt/homebrew/lib/python3.11/site-packages/lumibot/strategies/strategy_executor.py", line 773, in _run_trading_session
+    self._on_trading_iteration()
+  File "/opt/homebrew/lib/python3.11/site-packages/lumibot/strategies/strategy_executor.py", line 286, in func_output
+    result = func_input(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/lumibot/strategies/strategy_executor.py", line 310, in func_output
+    result = func_input(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/lumibot/strategies/strategy_executor.py", line 86, in func_output
+    return func_input(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/lumibot/strategies/strategy_executor.py", line 388, in _on_trading_iteration
+    on_trading_iteration()
+  File "/opt/homebrew/lib/python3.11/site-packages/lumibot/tools/decorators.py", line 62, in func_output
+    frame, result = call_function_get_frame(func_input, *args, **kwargs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/lumibot/tools/decorators.py", line 30, in call_function_get_frame
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am7590/Development/clubs/algo-trading/strategy.py", line 47, in on_trading_iteration
+    probability, sentiment = self.get_sentiment()
+                             ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am7590/Development/clubs/algo-trading/strategy.py", line 67, in get_sentiment
+    today, three_days_prior = self.get_dates()
+                              ^^^^^^^^^^^^^^^^
+  File "/Users/am7590/Development/clubs/algo-trading/strategy.py", line 63, in get_dates
+    three_days_prior = today - Timedelta(days=3)
+                               ^^^^^^^^^
+NameError: name 'Timedelta' is not defined
+
+2024-02-13 12:32:39,311: root: INFO: MLTrader : Executing the on_bot_crash event method
+2024-02-13 12:32:39,312: backtest_stats: INFO: Backtest took 0:00:00.887443 for a speed of 0.000
+2024-02-13 12:32:39,313: root: WARNING: Cannot plot returns because the strategy returns are missing
+2024-02-13 12:32:39,344: root: WARNING: Cannot create a tearsheet because the strategy returns are missing
